@@ -19,7 +19,7 @@ echo "prop=$(getprop ro.audio.ihaladaptervendorextension_enabled)" >> "$LOG"
 
 chmod 0755 "$REG" 2>/dev/null
 pkill -f audiohalext_registrar 2>/dev/null
-LD_LIBRARY_PATH=/system_ext/lib64:/system/lib64 "$REG" "$LIB" >> "$LOG" 2>&1 &
+LD_LIBRARY_PATH=/system_ext/lib64:/system/lib64:/vendor/lib64 "$REG" "$LIB" >> "$LOG" 2>&1 &
 sleep 2
 
 if service list 2>/dev/null | grep -q IHalAdapterVendorExtension; then
