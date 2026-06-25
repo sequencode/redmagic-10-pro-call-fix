@@ -1,0 +1,12 @@
+allow su audioserver_service service_manager add
+allow su audioserver_service service_manager find
+allow magisk audioserver_service service_manager add
+allow magisk audioserver_service service_manager find
+allow su servicemanager binder call
+allow su servicemanager binder transfer
+allow magisk servicemanager binder call
+allow magisk servicemanager binder transfer
+allow audioserver su binder call
+allow audioserver su binder transfer
+allow audioserver magisk binder call
+allow audioserver magisk binder transfer
