@@ -21,3 +21,5 @@ with the service manager, then restarts `audioserver` so it picks up the extensi
 | Tested on | Android 16 GSI (phh-treble) |
 
 Flash via APatch / KernelSU / Magisk and reboot.
+
+**[Download latest release](https://github.com/sequencode/redmagic-10-pro-call-fix/releases/latest)**
