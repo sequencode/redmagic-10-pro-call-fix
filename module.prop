@@ -1,6 +1,6 @@
 id=rm10_callaudio_fix
 name=RedMagic 10 Pro GSI In-Call Audio Fix
-version=v1.0
-versionCode=1
+version=v1.3
+versionCode=3
 author=SEQUENCODE
 description=Restores in-call audio on the RedMagic 10 Pro running Android 16 GSIs. Supplies the missing QTI IHalAdapterVendorExtension AIDL service by loading libaudiohalvendorextn.so at boot and restarting audioserver so it picks up the extension.
