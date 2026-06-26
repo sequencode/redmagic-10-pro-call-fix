@@ -1,0 +1,2 @@
+allow magisk default_android_service service_manager add
+allow audioserver default_android_service service_manager find
