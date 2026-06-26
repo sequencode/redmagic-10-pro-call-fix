@@ -17,6 +17,16 @@ done
 "$RESETPROP" -n ro.audio.ihaladaptervendorextension_enabled true 2>/dev/null
 echo "prop=$(getprop ro.audio.ihaladaptervendorextension_enabled)" >> "$LOG"
 
+# Apply SELinux rules at runtime to avoid bootloop from static sepolicy.rule.
+MAGISKPOLICY=$(command -v magiskpolicy 2>/dev/null || echo /data/adb/ap/bin/magiskpolicy)
+if [ -x "$MAGISKPOLICY" ]; then
+    "$MAGISKPOLICY" --live \
+        "allow magisk default_android_service service_manager add" \
+        "allow audioserver default_android_service service_manager find" \
+        >> "$LOG" 2>&1
+    echo "sepolicy applied" >> "$LOG"
+fi
+
 chmod 0755 "$REG" 2>/dev/null
 pkill -f audiohalext_registrar 2>/dev/null
 LD_LIBRARY_PATH=/system_ext/lib64:/system/lib64:/vendor/lib64 "$REG" "$LIB" >> "$LOG" 2>&1 &
